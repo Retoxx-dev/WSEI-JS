@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+
+</head>
+<body>
+    <div id="main">
+        <input type="text" id="num1" class="box"><br>
+        <input type="text" id="num2" class="box"><br>
+        <input type="text" id="num3" class="box"><br>
+        <input type="text" id="num4" class="box"><br>
+        <span>Summary: </span><span id="summary"></span><br>
+        <span>Min: </span><span id="min"></span><br>
+        <span>Max: </span><span id="max"></span><br>
+        <span>Avg: </span><span id="avg"></span><br>
+    </div>
+    <script>
+        const button = document.getElementById("button")
+        
+        const inputs = document.querySelectorAll(".box")
+        
+        console.log(inputs)
+        inputs.forEach(element => {
+            element.addEventListener('input', dostuff)
+        });
+
+        function dostuff(){
+            num1 = parseFloat(document.querySelector("#num1").value);
+            num2 = parseFloat(document.querySelector("#num2").value);
+            num3 = parseFloat(document.querySelector("#num3").value);
+            num4 = parseFloat(document.querySelector("#num4").value);
+
+            summary = num1+num2+num3+num4
+            document.getElementById("summary").innerText=summary
+
+            avg = (num1+num2+num3+num4)/4
+            document.getElementById("avg").innerText=avg
+
+            min = Math.min(num1, num2, num3, num4)
+            document.getElementById("min").innerText=min
+
+            max = Math.max(num1, num2, num3, num4)
+            document.getElementById("max").innerText=max
+        }
+    </script>
+</body>
+</html>
